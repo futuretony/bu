@@ -69,10 +69,16 @@ def main():
 	for y in years:
 		if y == '2003':
 		# Half-year loop for introduction of delay data in June 2003
-			for m in months_n[5:13]:
+			for m in months_n[5:12]:
 				data = str1 + str(m) + str2 + y + str3 + months[m-1] + str4 + y + str5 + str(m) + str6
 				content = httprequest(url,headers,data,months[m-1],y)
 				zip(content,zpath)
+		elif y == '2017':
+		# Partial-year loop for data up through September 2017
+			for m in months_n[:9]:
+				data = str1 + str(m) + str2 + y + str3 + months[m-1] + str4 + y + str5 + str(m) + str6
+				content = httprequest(url,headers,data,months[m-1],y)
+				zip(content,zpath)		
 		else:
 		# Full-year loop for all other years
 			for m in months_n:
