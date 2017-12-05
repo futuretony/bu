@@ -13,12 +13,12 @@ import sys
 zpath = 'C:/Users/Sherwin/Desktop/ek125final_BTSrawdata/'
 
 def httprequest(url,headers,data,mo,yr):
-"""
-Function to send POST request.
-Params: request URL, request
-headers, request body, mo/yr
-of data being requested.
-"""
+	"""
+	Function to send POST request.
+	Params: request URL, request
+	headers, request body, mo/yr
+	of data being requested.
+	"""
 	s = requests.Session()
 	r = s.post(url,headers=headers,data=data)
 	if r.raise_for_status() is None:
@@ -28,14 +28,14 @@ of data being requested.
 	return r.content
 
 def zip(response,path):
-"""
-Function to extract .zip
-from response to specified
-path.
-Params: response content, 
-file pathname for extraction
-location.
-"""
+	"""
+	Function to extract .zip
+	from response to specified
+	path.
+	Params: response content, 
+	file pathname for extraction
+	location.
+	"""
 	z = zipfile.ZipFile(io.BytesIO(response))
 	z.extractall(path)
 	
